@@ -28,4 +28,17 @@ describe('Document Collection', () => {
           expect(writeCalls[0][1]).toBe(JSON.stringify(exampleObject));
         });
   });
+
+  it('propagates error', () => {
+    //arrange
+    const error = 'file error';
+    writeFile.mockRejectedValueOnce(error);
+    expect.assertions(0);
+
+    //act
+    collection.save({})
+      .catch(err => {
+        expect(err).toBe(error);
+      });
+  });
 });
