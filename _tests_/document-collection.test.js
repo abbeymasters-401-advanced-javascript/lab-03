@@ -12,16 +12,16 @@ const collection = new DocumentCollection;
 describe('Document Collection', () => {
   it('saves file', () => {
     //arrange
-      const dest = './id.json';
-      const exampleObject = {
-        name: 'abbey'
-      };
-
-      writeFile.mockResolvedValue(exampleObject);
-
+    const exampleObject = {
+      name: 'abbey'
+    };
+    
+    writeFile.mockResolvedValue(exampleObject);
+    
     //act
-      return collection.save(exampleObject)
-        .then(() => {
+    return collection.save(exampleObject)
+    .then(() => {
+          const dest = `./${exampleObject.id}.json`;
           const writeCalls = writeFile.mock.calls;
           expect(writeCalls.length).toBe(1);
           expect(writeCalls[0][0]).toBe(dest);
