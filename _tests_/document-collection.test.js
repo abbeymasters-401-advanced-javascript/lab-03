@@ -43,7 +43,6 @@ describe('Document Collection', () => {
       });      
     });
 
-    // getting ID test and error
 
     it('get id', () => {
       //arrange
@@ -69,6 +68,28 @@ describe('Document Collection', () => {
       collection.save({})
         .catch(err => {
           expect(err).toBe(error);
+        });
+    });
+
+    it('get ALL files in directories', () => {
+      //arrange
+      readPromise = Promise.resolve(JSON.stringify(exampleObject));
+      readFile.mockReturnValueOnce(readPromise);
+      
+      readDirPromise = Promise.resolve(['123.json']);
+      readdir.mockReturnValueOnce(readDirPromise);
+      
+      const docCollection = new DocumentCollection('document');
+      
+      //act
+      return collection.getAll()
+        .then(items => {
+          const readdirCalls = readdir.mock.calls;
+          expect(readdir.mock.calls[0][0]).toBe('./document');
+
+          expect(readdirCalls.length).toBe(1); 
+          expect(readFile.mock.calls[1][0]).toBe('./document/123.json');
+          expect(items[0].id).toBe(exampleObject.id);
         });
     });
 });
