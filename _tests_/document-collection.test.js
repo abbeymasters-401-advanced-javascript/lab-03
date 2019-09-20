@@ -43,7 +43,6 @@ describe('Document Collection', () => {
       });      
     });
 
-
     it('get id', () => {
       //arrange
       const source = `./document/${exampleObject.id}.json`;
@@ -57,19 +56,6 @@ describe('Document Collection', () => {
           expect(readCalls[0][0]).toBe(source);
         });
     });
-  
-    it('get id — propagates error', () => {
-      //arrange
-      const error = 'file error';
-      writeFile.mockRejectedValueOnce(error);
-      expect.assertions(0);
-  
-      //act
-      collection.save({})
-        .catch(err => {
-          expect(err).toBe(error);
-        });
-    });
 
     it('get ALL files in directories', () => {
       //arrange
@@ -78,9 +64,7 @@ describe('Document Collection', () => {
       
       readDirPromise = Promise.resolve(['123.json']);
       readdir.mockReturnValueOnce(readDirPromise);
-      
-      const docCollection = new DocumentCollection('document');
-      
+            
       //act
       return collection.getAll()
         .then(items => {
