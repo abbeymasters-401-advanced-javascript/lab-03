@@ -5,10 +5,7 @@
 
 ### Links and Resources
 * [submission PR](https://github.com/abbeymasters-401-advanced-javascript/lab-03/pull/1)
-* [travis]()
-
-#### Docs
-* [Docs] ()
+* [travis](https://travis-ci.com/abbeymasters-401-advanced-javascript/lab-03/builds/128438903)
 
 #### Running the app
 Commands:
