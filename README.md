@@ -4,11 +4,11 @@
 ### Author: Abbey Masters
 
 ### Links and Resources
-* [submission PR](https://github.com/abbeymasters-401-advanced-javascript/lab-01/pull/1)
-* [travis](https://travis-ci.com/abbeymasters-401-advanced-javascript/lab-01)
+* [submission PR](https://github.com/abbeymasters-401-advanced-javascript/lab-03/pull/1)
+* [travis]()
 
 #### Docs
-* [Docs] (https://abbeymasters-401-advanced-javascript.github.io/lab-01/docs)
+* [Docs] ()
 
 #### Running the app
 Commands:
